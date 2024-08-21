@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dex from './pages/Dex';
 import Home from './pages/Home';
-import Dashboard from './components/Dashboard';
 
 const App = () => {
   return (
