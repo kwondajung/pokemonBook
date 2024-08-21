@@ -1,14 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
-import MOCK_DATA from '../mock';
 
 function PokemonList({ pokemonList, onAddPokemon }) {
-  // const mock = pokemonList;
-  // console.log(mock);
-  // 추가하기
-
-  // console.log(pokemonList); // 잘 불러와짐
   return (
     <ListContainer>
       {pokemonList.map(function (pokemon) {
