@@ -11,7 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dex" element={<Dex />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          {/* 디테일 페이지 추가하기 */}
         </Routes>
       </BrowserRouter>
     </>
