@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PokemonCard from './PokemonCard';
 
 function Dashboard({ selcetdPokemon }) {
   return (
@@ -8,7 +9,11 @@ function Dashboard({ selcetdPokemon }) {
       {selcetdPokemon.length === 0 ? (
         <p>선택된 포켓몬이 없습니다.</p>
       ) : (
-        <p>테스트</p>
+        <ul>
+          {selcetdPokemon.map((pokemon) => {
+            return <li key={pokemon.id}>{pokemon.korean_name}</li>;
+          })}
+        </ul>
       )}
     </DashboardContainer>
   );

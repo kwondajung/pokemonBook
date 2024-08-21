@@ -6,10 +6,22 @@ import PokemonCard from '../components/PokemonCard';
 
 function Dex() {
   const [selcetdPokemon, setSelctedPokemon] = useState([]);
+
+  // 포켓몬 선택하기
+  const addPokemon = (pokemon) => {
+    const newArr = [...selcetdPokemon, pokemon];
+    setSelctedPokemon(newArr);
+  };
+  console.log(selcetdPokemon);
+  // 선택한 포켓몬 제거하기
+  const removePokemon = (pokemon) => {};
   return (
     <>
-      <Dashboard selcetdPokemon={selcetdPokemon} />
-      <PokemonList pokemonList={MOCK_DATA} />
+      <Dashboard
+        selcetdPokemon={selcetdPokemon}
+        onRemovePokemon={removePokemon}
+      />
+      <PokemonList pokemonList={MOCK_DATA} onAddPokemon={addPokemon} />
     </>
   );
 }

@@ -6,8 +6,9 @@ import MOCK_DATA from '../mock';
 function PokemonList({ pokemonList, onAddPokemon }) {
   // const mock = pokemonList;
   // console.log(mock);
+  // 추가하기
 
-  console.log(pokemonList); // 잘 불러와짐
+  // console.log(pokemonList); // 잘 불러와짐
   return (
     <ListContainer>
       {pokemonList.map(function (pokemon) {
@@ -19,7 +20,9 @@ function PokemonList({ pokemonList, onAddPokemon }) {
               name: pokemon.korean_name,
               img_url: pokemon.img_url,
             }}
-            onAdd={() => {}}
+            onAdd={() => {
+              onAddPokemon(pokemon);
+            }}
             isSelected={false}
           />
         );

@@ -10,11 +10,19 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
       <b>
         <p>{pokemon.name}</p>
       </b>
-      <p>No.{pokemon.id}</p>
+      <p style={{ fontSize: 12 }}>
+        No.{pokemon.id.toString().padStart(3, '0')}
+      </p>
       {isSelected ? (
         <Button onClick={() => {}}>삭제</Button>
       ) : (
-        <Button onClick={() => {}}>추가</Button>
+        <Button
+          onClick={() => {
+            onAdd(pokemon);
+          }}
+        >
+          추가
+        </Button>
       )}
     </Card>
   );
@@ -28,6 +36,7 @@ const Card = styled.div`
   border-radius: 10px;
   display: block;
   cursor: pointer;
+  padding: 10px;
 `;
 
 const Button = styled.button`
