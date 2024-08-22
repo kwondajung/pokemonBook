@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
-import MOCK_DATA from '../mock';
+import { useNavigate } from 'react-router-dom';
 
 function PokemonCard({ pokemon, onAdd, isSelected }) {
-  return (
-    <Card>
-      <img src={pokemon.img_url} alt={pokemon.name} />
+  const navigate = useNavigate();
 
+  return (
+    <Card
+      onClick={() => {
+        navigate('/pokemon-detail');
+      }}
+    >
+      <img src={pokemon.img_url} alt={pokemon.name} />
       <b>
         <p>{pokemon.name}</p>
       </b>
@@ -17,8 +22,9 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
         <Button onClick={() => {}}>삭제</Button>
       ) : (
         <Button
-          onClick={() => {
+          onClick={(e) => {
             onAdd(pokemon);
+            e.stopPropagation(); // onClick 이벤트가 자식->부모로 전파되는 걸 방지하는 함수
           }}
         >
           추가
@@ -37,8 +43,15 @@ export const Card = styled.div`
   display: block;
   cursor: pointer;
   padding: 10px;
+  &:hover {
+    background: cornflowerblue;
+    color: white;
+    transition: 0.5s;
+  }
 `;
 
 export const Button = styled.button`
   cursor: pointer;
+  display: absolute;
+  z-index: 1;
 `;
