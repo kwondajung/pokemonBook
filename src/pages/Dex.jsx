@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import Dashboard from '../components/Dashboard';
 import PokemonList from '../components/PokemonList';
 import MOCK_DATA from '../mock';
-import PokemonCard from '../components/PokemonCard';
-
-// const defaultValue = pokemon.map(function () {});
 
 function Dex() {
   const [selcetdPokemon, setSelctedPokemon] = useState([]);
