@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import PokemonCard, { Button, Card } from './PokemonCard';
+import { Button, Card } from './PokemonCard';
 
 function Dashboard({ selcetdPokemon, onRemovePokemon }) {
   return (
