@@ -9,7 +9,9 @@ function Dashboard({ selcetdPokemon, onRemovePokemon }) {
         <h2 style={{ textAlign: 'center' }}>내 포켓볼</h2>
         <DashboardContainer>
           {selcetdPokemon.length === 0 ? (
-            <p>선택된 포켓몬이 없습니다.</p>
+            <p>
+              <b>포켓볼</b>이 비어있습니다!
+            </p>
           ) : (
             <>
               {selcetdPokemon.map((pokemon) => {
@@ -41,6 +43,7 @@ export default Dashboard;
 const DashboardContainer = styled.div`
   background-color: #dbdbdb; //994848
   width: 1200px;
+  height: 217px;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
