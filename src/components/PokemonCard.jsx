@@ -30,7 +30,7 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
 
 export default PokemonCard;
 
-const Card = styled.div`
+export const Card = styled.div`
   text-align: center;
   background-color: white;
   border-radius: 10px;
@@ -39,6 +39,6 @@ const Card = styled.div`
   padding: 10px;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   cursor: pointer;
 `;

@@ -14,7 +14,16 @@ function Dex() {
   };
   console.log(selcetdPokemon);
   // 선택한 포켓몬 제거하기
-  const removePokemon = (pokemon) => {};
+  const removePokemon = (pokemon) => {
+    const delPoke = selcetdPokemon.filter(function (del) {
+      if (del.id === pokemon.id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    setSelctedPokemon(delPoke);
+  };
   return (
     <>
       <Dashboard

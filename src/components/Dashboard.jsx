@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PokemonCard, { Button, Card } from './PokemonCard';
 
-function Dashboard({ selcetdPokemon }) {
+function Dashboard({ selcetdPokemon, onRemovePokemon }) {
   return (
     <>
       <div>
@@ -17,7 +18,13 @@ function Dashboard({ selcetdPokemon }) {
                   <Card key={pokemon.id}>
                     <img src={pokemon.img_url} />
                     <p>{pokemon.korean_name}</p>
-                    <button>{pokemon.isSelected}</button>
+                    <Button
+                      onClick={() => {
+                        onRemovePokemon(pokemon);
+                      }}
+                    >
+                      삭제
+                    </Button>
                   </Card>
                 );
               })}
@@ -44,11 +51,11 @@ const DashboardContainer = styled.div`
   border-radius: 10px;
 `;
 
-const Card = styled.div`
-  text-align: center;
-  background-color: white;
-  border-radius: 10px;
-  display: block;
-  cursor: pointer;
-  padding: 10px;
-`;
+// const Card = styled.div`
+//   text-align: center;
+//   background-color: white;
+//   border-radius: 10px;
+//   display: block;
+//   cursor: pointer;
+//   padding: 10px;
+// `;
