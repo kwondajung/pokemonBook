@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Dex from './pages/Dex';
 import Home from './pages/Home';
+import PokemonDetail from './pages/PokemonDetail';
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dex" element={<Dex />} />
-          {/* 디테일 페이지 추가하기 */}
+          <Route path="/pokemon-detail" element={<PokemonDetail />} />
         </Routes>
       </BrowserRouter>
     </>
