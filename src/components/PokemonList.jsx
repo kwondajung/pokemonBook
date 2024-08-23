@@ -13,6 +13,7 @@ function PokemonList({ pokemonList, onAddPokemon }) {
               id: pokemon.id,
               name: pokemon.korean_name,
               img_url: pokemon.img_url,
+              // types: pokemon.types,
             }}
             onAdd={() => {
               onAddPokemon(pokemon);
