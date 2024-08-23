@@ -1,49 +1,36 @@
 import React from 'react';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '../components/PokemonCard';
 import MOCK_DATA from '../mock';
 
-// 파람스의 id와 같은 id의 포켓몬 찾기
-// 포켓몬 정보 가져오기
+// 쿼리스트링의 id와 같은 id의 포켓몬 찾기 => 문자열이니 형변환해야 함
+// 찾은 포켓몬 정보 가져오기
 
+// TODO: 타입 2개일 경우 나눠서 보여주기
 const PokemonDetail = () => {
-  // const { id } = useParams();
-  // const urlId = id;
-  // console.log(urlId);
-
   const [searchParams, setSearchParams] = useSearchParams();
-  const id = searchParams.get('id');
+  const paramsId = Number(searchParams.get('id'));
 
   const navigate = useNavigate();
 
   const pokemonList = MOCK_DATA;
-  // const newPokemon = (pokemon) => {
-  //   pokemonList.find(function (findPoke) {
-  //     if (findPoke.id === pokemon.id) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  // };
+  const newPokemon = pokemonList.find(function (findPoke) {
+    return findPoke.id === paramsId;
+  });
 
-  // console.log(pokemonList);
-  // console.log('url ID => ', urlId);
-  // console.log('찾았다 => ', newPokemon);
-
-  // const mapPokemon = pokemonList.map(function (mapPoke) {
-  //   if (newPokemon.id === mapPoke.id) {
-  //     return <DetailInfo>{id}번 포켓몬 등장</DetailInfo>;
-  //   } else {
-  //     <DetailInfo>로딩에 실패했어요...</DetailInfo>;
-  //     return;
-  //   }
-  // });
+  console.log(newPokemon);
 
   return (
     <DetailInfo>
-      {id}번 포켓몬 등장 <br />
+      <img src={newPokemon.img_url} alt={newPokemon.korean_name} />
+      <br />
+      <h3>
+        앗! 야생의 <b>{newPokemon.korean_name}</b>이(가) 나타났다!
+      </h3>
+      타입: {newPokemon.types} <br />
+      {newPokemon.description}
+      <br />
       <Button
         onClick={() => {
           navigate('/dex');
@@ -51,10 +38,16 @@ const PokemonDetail = () => {
       >
         뒤로 가기
       </Button>
+      {/* <p>{newArr.ko}</p> */}
     </DetailInfo>
   );
 };
 
 export default PokemonDetail;
 
-const DetailInfo = styled.div``;
+const DetailInfo = styled.div`
+  /* background-color: green; */
+  text-align: center;
+  margin-top: 300px;
+  line-height: 180%;
+`;
