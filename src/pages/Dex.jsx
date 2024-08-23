@@ -7,7 +7,6 @@ function Dex() {
   const [selcetdPokemon, setSelctedPokemon] = useState([]);
 
   // mock_data state 초기값으로 빼기 = > 포켓볼 상태, 포켓몬 카드 상태
-  const [pokemon, setPokemon] = useState([]); // mock_data
 
   // 포켓몬 선택하기
   // 1. 같은 id를 가진 포켓몬 중복 선택 시 => alert
