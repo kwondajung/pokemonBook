@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function PokemonCard({ pokemon, onAdd, isSelected }) {
   const navigate = useNavigate();
@@ -8,8 +8,10 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
   return (
     <Card
       onClick={() => {
-        navigate('/pokemon-detail');
+        navigate(`/pokemon-detail?id=${pokemon.id}`);
+        // 몇 번째 id 가진 애인지도 보내야 됨
       }}
+      $pokemon={pokemon}
     >
       <img src={pokemon.img_url} alt={pokemon.name} />
       <b>
@@ -45,6 +47,7 @@ export const Card = styled.div`
   padding: 10px;
   &:hover {
     background: cornflowerblue;
+
     color: white;
     transition: 0.5s;
   }
