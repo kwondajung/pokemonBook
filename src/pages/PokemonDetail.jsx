@@ -7,7 +7,6 @@ import MOCK_DATA from '../mock';
 // 쿼리스트링의 id와 같은 id의 포켓몬 찾기 => 문자열이니 형변환해야 함
 // 찾은 포켓몬 정보 가져오기
 
-// TODO: 타입 2개일 경우 나눠서 보여주기
 const PokemonDetail = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const paramsId = Number(searchParams.get('id'));
@@ -46,7 +45,6 @@ const PokemonDetail = () => {
       >
         뒤로 가기
       </Button>
-      {/* <p>{newArr.ko}</p> */}
     </DetailInfo>
   );
 };
@@ -54,7 +52,6 @@ const PokemonDetail = () => {
 export default PokemonDetail;
 
 const DetailInfo = styled.div`
-  /* background-color: green; */
   text-align: center;
   margin-top: 300px;
   line-height: 180%;

@@ -10,7 +10,7 @@ function Dex() {
   return (
     <PokemonContainer.Provider
       value={{
-        selcetdPokemon, // 모든 걸 dex에서 하지 말고 필요한 곳에서 만들기
+        selcetdPokemon,
         setSelctedPokemon,
       }}
     >

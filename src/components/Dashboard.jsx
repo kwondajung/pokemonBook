@@ -42,13 +42,12 @@ function Dashboard() {
 export default Dashboard;
 
 const DashboardContainer = styled.div`
-  background-color: #dbdbdb; //994848
+  background-color: #dbdbdb;
   width: 1200px;
   height: 240px;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  /* justify-items: center; */
   gap: 10px;
   padding: 10px;
   margin: auto;

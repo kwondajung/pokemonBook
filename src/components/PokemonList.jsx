@@ -23,7 +23,6 @@ function PokemonList({ pokemonList }) {
     </ListContainer>
   );
 }
-// console.log(MOCK_DATA);
 
 export default PokemonList;
 

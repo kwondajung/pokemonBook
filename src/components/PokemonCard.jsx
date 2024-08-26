@@ -6,7 +6,6 @@ import { PokemonContainer } from '../pages/Dex';
 function PokemonCard({ pokemon, isSelected }) {
   const navigate = useNavigate();
   const { selcetdPokemon, setSelctedPokemon } = useContext(PokemonContainer);
-  // console.log(pokemon);
 
   // 포켓몬 선택하기
   const addPokemon = (pokemon) => {
