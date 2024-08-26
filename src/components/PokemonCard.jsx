@@ -88,7 +88,24 @@ export const Card = styled.div`
   cursor: pointer;
   padding: 10px;
   &:hover {
-    background: cornflowerblue;
+    /* background: cornflowerblue; */
+    background-color: ${function ({ $types }) {
+      if ($types.includes('물')) {
+        return 'cornflowerblue';
+      } else if ($types.includes('풀')) {
+        return '#70bd7d';
+      } else if ($types.includes('전기')) {
+        return '#ebd03a';
+      } else if ($types.includes('독')) {
+        return '#a133a5';
+      } else if ($types.includes('불꽃')) {
+        return '#d14444';
+      } else if ($types.includes('페어리')) {
+        return '#ff97e0';
+      } else {
+        return 'gray';
+      }
+    }};
     color: white;
     transition: all 0.5s ease;
     transform: scale(1.1);
