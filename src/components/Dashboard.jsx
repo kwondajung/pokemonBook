@@ -4,7 +4,7 @@ import PokemonCard, { Button, Card } from './PokemonCard';
 import { PokemonContainer } from '../pages/Dex';
 
 function Dashboard() {
-  const { selcetdPokemon, removePokemon } = useContext(PokemonContainer);
+  const { selcetdPokemon, setSelctedPokemon } = useContext(PokemonContainer);
   return (
     <>
       <div>
@@ -27,7 +27,6 @@ function Dashboard() {
                       types: pokemon.types,
                     }}
                     onClick={() => {}}
-                    삭제
                     isSelected={true}
                   />
                 );
