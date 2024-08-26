@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PokemonCard from './PokemonCard';
 
-function PokemonList({ pokemonList, onAddPokemon }) {
+function PokemonList({ pokemonList }) {
   return (
     <ListContainer>
       {pokemonList.map(function (pokemon) {
@@ -15,9 +15,7 @@ function PokemonList({ pokemonList, onAddPokemon }) {
               img_url: pokemon.img_url,
               types: pokemon.types,
             }}
-            onAdd={() => {
-              onAddPokemon(pokemon);
-            }}
+            onAdd={() => {}}
             isSelected={false}
           />
         );

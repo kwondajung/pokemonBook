@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { Button, Card } from './PokemonCard';
+import PokemonCard, { Button, Card } from './PokemonCard';
+import { PokemonContainer } from '../pages/Dex';
 
-function Dashboard({ selcetdPokemon, onRemovePokemon }) {
+function Dashboard() {
+  const { selcetdPokemon, removePokemon } = useContext(PokemonContainer);
   return (
     <>
       <div>
@@ -15,24 +17,19 @@ function Dashboard({ selcetdPokemon, onRemovePokemon }) {
           ) : (
             <>
               {selcetdPokemon.map((pokemon) => {
-                // return <li key={pokemon.id}>{pokemon.korean_name}</li>;
                 return (
-                  <Card key={pokemon.id}>
-                    <img src={pokemon.img_url} />
-                    <p>
-                      <b>{pokemon.korean_name}</b>
-                    </p>
-                    <p style={{ fontSize: 12 }}>
-                      No.{pokemon.id.toString().padStart(3, '0')}
-                    </p>
-                    <Button
-                      onClick={() => {
-                        onRemovePokemon(pokemon);
-                      }}
-                    >
-                      삭제
-                    </Button>
-                  </Card>
+                  <PokemonCard
+                    key={pokemon.id}
+                    pokemon={{
+                      id: pokemon.id,
+                      name: pokemon.name,
+                      img_url: pokemon.img_url,
+                      types: pokemon.types,
+                    }}
+                    onClick={() => {}}
+                    삭제
+                    isSelected={true}
+                  />
                 );
               })}
             </>
@@ -58,12 +55,3 @@ const DashboardContainer = styled.div`
   margin: auto;
   border-radius: 10px;
 `;
-
-// const Card = styled.div`
-//   text-align: center;
-//   background-color: white;
-//   border-radius: 10px;
-//   display: block;
-//   cursor: pointer;
-//   padding: 10px;
-// `;

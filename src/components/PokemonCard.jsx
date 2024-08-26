@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { PokemonContainer } from '../pages/Dex';
 
-function PokemonCard({ pokemon, onAdd, isSelected }) {
+function PokemonCard({ pokemon, isSelected }) {
   const navigate = useNavigate();
+  const { addPokemon, removePokemon } = useContext(PokemonContainer);
   // console.log(pokemon);
   return (
     <Card
       onClick={() => {
         navigate(`/pokemon-detail?id=${pokemon.id}`);
-        // 몇 번째 id 가진 애인지도 보내야 됨
       }}
       $pokemon={pokemon}
       $types={pokemon.types}
@@ -22,11 +23,18 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
         No.{pokemon.id.toString().padStart(3, '0')}
       </p>
       {isSelected ? (
-        <Button onClick={() => {}}>삭제</Button>
+        <Button
+          onClick={(e) => {
+            removePokemon(pokemon);
+            e.stopPropagation();
+          }}
+        >
+          삭제
+        </Button>
       ) : (
         <Button
           onClick={(e) => {
-            onAdd(pokemon);
+            addPokemon(pokemon);
             e.stopPropagation(); // onClick 이벤트가 자식->부모로 전파되는 걸 방지하는 함수
           }}
         >

@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React, { createContext, useState } from 'react';
 import Dashboard from '../components/Dashboard';
 import PokemonList from '../components/PokemonList';
 import MOCK_DATA from '../mock';
 
+export const PokemonContainer = createContext();
 function Dex() {
   const [selcetdPokemon, setSelctedPokemon] = useState([]);
 
-  // mock_data state 초기값으로 빼기 = > 포켓볼 상태, 포켓몬 카드 상태
-
   // 포켓몬 선택하기
-  // 1. 같은 id를 가진 포켓몬 중복 선택 시 => alert
-  // 2. 그렇지 않으면 추가
-  // 3. 배열의 길이가 5를 넘을 시 => alert
-
   const addPokemon = (pokemon) => {
     // 중복 찾기: id끼리 비교해서 중복된 게 있으면 true => 중복값 반환 => 중복값 findPoke에 할당
     // 중복 요소 못 찾을 시 undefined 반환 => 중복되는 게 없으니 배열에 추가하면 됨
@@ -30,7 +25,7 @@ function Dex() {
       const newArr = [...selcetdPokemon, pokemon];
       setSelctedPokemon(newArr);
     } else {
-      return alert(`${pokemon.korean_name}은(는) 이미 데리고 있어요!`);
+      return alert(`${pokemon.name}은(는) 이미 데리고 있어요!`);
     }
   };
 
@@ -46,13 +41,18 @@ function Dex() {
     setSelctedPokemon(deletePokemon);
   };
   return (
-    <>
-      <Dashboard
-        selcetdPokemon={selcetdPokemon}
-        onRemovePokemon={removePokemon}
-      />
-      <PokemonList pokemonList={MOCK_DATA} onAddPokemon={addPokemon} />
-    </>
+    <PokemonContainer.Provider
+      value={{
+        selcetdPokemon,
+        setSelctedPokemon,
+        removePokemon, //뺴
+        pokemonList: MOCK_DATA, //props
+        addPokemon, //빼
+      }}
+    >
+      <Dashboard />
+      <PokemonList pokemonList={MOCK_DATA} />
+    </PokemonContainer.Provider>
   );
 }
 
