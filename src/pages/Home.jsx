@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/PokemonCard';
 import styled from 'styled-components';
+import '../App.css';
 
 const Home = () => {
   const nevigate = useNavigate();
