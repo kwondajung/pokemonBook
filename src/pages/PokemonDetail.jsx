@@ -19,16 +19,24 @@ const PokemonDetail = () => {
     return findPoke.id === paramsId;
   });
 
-  console.log(newPokemon);
+  console.log([newPokemon.types]);
 
   return (
     <DetailInfo>
       <img src={newPokemon.img_url} alt={newPokemon.korean_name} />
       <br />
       <h3>
-        앗! 야생의 <b>{newPokemon.korean_name}</b>이(가) 나타났다!
+        앗! 야생의{' '}
+        <span
+          style={{
+            color: 'red',
+          }}
+        >
+          {newPokemon.korean_name}
+        </span>
+        이(가) 나타났다!
       </h3>
-      타입: {newPokemon.types} <br />
+      타입: {newPokemon.types.join(', ')} <br />
       {newPokemon.description}
       <br />
       <Button
