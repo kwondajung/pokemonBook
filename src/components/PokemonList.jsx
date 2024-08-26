@@ -13,7 +13,7 @@ function PokemonList({ pokemonList, onAddPokemon }) {
               id: pokemon.id,
               name: pokemon.korean_name,
               img_url: pokemon.img_url,
-              // types: pokemon.types,
+              types: pokemon.types,
             }}
             onAdd={() => {
               onAddPokemon(pokemon);
@@ -39,4 +39,5 @@ const ListContainer = styled.div`
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
+  text-align: center;
 `;

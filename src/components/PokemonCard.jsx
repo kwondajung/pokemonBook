@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 function PokemonCard({ pokemon, onAdd, isSelected }) {
   const navigate = useNavigate();
-
+  // console.log(pokemon);
   return (
     <Card
       onClick={() => {
@@ -12,11 +12,12 @@ function PokemonCard({ pokemon, onAdd, isSelected }) {
         // 몇 번째 id 가진 애인지도 보내야 됨
       }}
       $pokemon={pokemon}
+      $types={pokemon.types}
     >
       <img src={pokemon.img_url} alt={pokemon.name} />
-      <b>
-        <p>{pokemon.name}</p>
-      </b>
+      <p>
+        <b>{pokemon.name}</b>
+      </p>
       <p style={{ fontSize: 12 }}>
         No.{pokemon.id.toString().padStart(3, '0')}
       </p>
@@ -47,14 +48,20 @@ export const Card = styled.div`
   padding: 10px;
   &:hover {
     background: cornflowerblue;
-
     color: white;
-    transition: 0.5s;
+    transition: all 0.5s ease;
+    transform: scale(1.1);
   }
 `;
 
 export const Button = styled.button`
   cursor: pointer;
-  display: absolute;
+  /* display: absolute; */
   z-index: 1;
+  border: none;
+  height: 40px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  margin: auto;
 `;

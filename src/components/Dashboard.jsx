@@ -19,7 +19,12 @@ function Dashboard({ selcetdPokemon, onRemovePokemon }) {
                 return (
                   <Card key={pokemon.id}>
                     <img src={pokemon.img_url} />
-                    <p>{pokemon.korean_name}</p>
+                    <p>
+                      <b>{pokemon.korean_name}</b>
+                    </p>
+                    <p style={{ fontSize: 12 }}>
+                      No.{pokemon.id.toString().padStart(3, '0')}
+                    </p>
                     <Button
                       onClick={() => {
                         onRemovePokemon(pokemon);
@@ -43,7 +48,7 @@ export default Dashboard;
 const DashboardContainer = styled.div`
   background-color: #dbdbdb; //994848
   width: 1200px;
-  height: 217px;
+  height: 240px;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
