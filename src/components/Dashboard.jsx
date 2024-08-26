@@ -8,7 +8,17 @@ function Dashboard() {
   return (
     <>
       <div>
-        <h2 style={{ textAlign: 'center' }}>내 포켓볼</h2>
+        {/* <h2 style={{ textAlign: 'center' }}>내 포켓볼</h2> */}
+        <img
+          src="https://react-6-pokemon.vercel.app/assets/pokemon-logo-RN0wntMB.png"
+          alt="포켓몬 로고"
+          style={{
+            width: '200px',
+            margin: 'auto',
+            display: 'block',
+            marginBottom: '20px',
+          }}
+        />
         <DashboardContainer>
           {selcetdPokemon.length === 0 ? (
             <p>
@@ -42,7 +52,7 @@ function Dashboard() {
 export default Dashboard;
 
 const DashboardContainer = styled.div`
-  background-color: #dbdbdb;
+  background-color: #ececec;
   width: 1200px;
   height: 240px;
   text-align: center;

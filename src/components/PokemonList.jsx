@@ -27,7 +27,7 @@ function PokemonList({ pokemonList }) {
 export default PokemonList;
 
 const ListContainer = styled.div`
-  background-color: #dbdbdb;
+  background-color: #ececec;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 20px;

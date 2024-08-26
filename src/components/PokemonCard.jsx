@@ -49,12 +49,13 @@ function PokemonCard({ pokemon, isSelected }) {
       $types={pokemon.types}
     >
       <img src={pokemon.img_url} alt={pokemon.name} />
-      <p>
-        <b>{pokemon.name}</b>
-      </p>
       <p style={{ fontSize: 12 }}>
         No.{pokemon.id.toString().padStart(3, '0')}
       </p>
+      <p>
+        <b>{pokemon.name}</b>
+      </p>
+
       {isSelected ? (
         <Button
           onClick={(e) => {
@@ -122,4 +123,8 @@ export const Button = styled.button`
   text-align: center;
   border-radius: 5px;
   margin: auto;
+  &:hover {
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+  }
 `;
