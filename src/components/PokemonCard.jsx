@@ -5,8 +5,42 @@ import { PokemonContainer } from '../pages/Dex';
 
 function PokemonCard({ pokemon, isSelected }) {
   const navigate = useNavigate();
-  const { addPokemon, removePokemon } = useContext(PokemonContainer);
+  const { selcetdPokemon, setSelctedPokemon } = useContext(PokemonContainer);
   // console.log(pokemon);
+
+  // 포켓몬 선택하기
+  const addPokemon = (pokemon) => {
+    // 중복 찾기: id끼리 비교해서 중복된 게 있으면 true => 중복값 반환 => 중복값 findPoke에 할당
+    // 중복 요소 못 찾을 시 undefined 반환 => 중복되는 게 없으니 배열에 추가하면 됨
+    const findPokemon = selcetdPokemon.find(function (sameId) {
+      if (sameId.id === pokemon.id) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    if (selcetdPokemon.length > 5) {
+      alert('포켓몬은 최대 6마리만 데리고 갈 수 있어요!');
+    } else if (findPokemon === undefined) {
+      const newArr = [...selcetdPokemon, pokemon];
+      setSelctedPokemon(newArr);
+    } else {
+      return alert(`${pokemon.name}은(는) 이미 데리고 있어요!`);
+    }
+  };
+
+  // 선택한 포켓몬 제거하기
+  const removePokemon = (pokemon) => {
+    const deletePokemon = selcetdPokemon.filter(function (del) {
+      if (del.id === pokemon.id) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+    setSelctedPokemon(deletePokemon);
+  };
   return (
     <Card
       onClick={() => {

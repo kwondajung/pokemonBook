@@ -4,7 +4,7 @@ import PokemonCard, { Button, Card } from './PokemonCard';
 import { PokemonContainer } from '../pages/Dex';
 
 function Dashboard() {
-  const { selcetdPokemon, setSelctedPokemon } = useContext(PokemonContainer);
+  const { selcetdPokemon } = useContext(PokemonContainer);
   return (
     <>
       <div>
@@ -48,7 +48,7 @@ const DashboardContainer = styled.div`
   text-align: center;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  justify-items: center;
+  /* justify-items: center; */
   gap: 10px;
   padding: 10px;
   margin: auto;
