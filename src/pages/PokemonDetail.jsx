@@ -75,7 +75,7 @@ const PokemonDetail = () => {
               right: '80px',
             }}
           >
-            ▶ 도망치기
+            ▶ 도망치다
           </Button>
         </div>
       </DetailInfo>
