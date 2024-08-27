@@ -36,7 +36,8 @@
  ┃ ┣ 📜PokemonCard.jsx  
  ┃ ┗ 📜PokemonList.jsx  
  ┣ 📂images  
- ┃ ┗ 📜oops.png  
+ ┃ ┣ 📜oops.png  
+ ┃ ┗ 📜intro.png  
  ┣ 📂pages  
  ┃ ┣ 📜Dex.jsx  
  ┃ ┣ 📜Home.jsx  
