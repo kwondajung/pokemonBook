@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import PokemonCard, { Button, Card } from './PokemonCard';
+import PokemonCard from './PokemonCard';
 import { PokemonContainer } from '../pages/Dex';
 
 function Dashboard() {
@@ -8,7 +8,6 @@ function Dashboard() {
   return (
     <>
       <div>
-        {/* <h2 style={{ textAlign: 'center' }}>내 포켓볼</h2> */}
         <img
           src="https://react-6-pokemon.vercel.app/assets/pokemon-logo-RN0wntMB.png"
           alt="포켓몬 로고"
